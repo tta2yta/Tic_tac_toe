@@ -30,4 +30,24 @@ end
 puts "Player 2 Enter Your Name"
 names.push(gets.chop.strip)
 puts "Player two Your Name is #{names[1]}"
-puts "#{names[1]} Your Symbol is #{sym_p1=='X' ? 'Y' : 'X'}
+puts "#{names[1]} Your Symbol is #{sym_p1=='X' ? 'Y' : 'X'}"
+
+pos=[1,2,3,4,5,6,7,8,9]
+
+def check_pos(pos_move, name)
+    if !pos_move.to_i.to_s==pos_move
+    puts "#{name} Please Enter Correct Position From 1-9"
+else
+    if pos.include?(pos_move.to_i)
+        pos[pos_move.to_i - 1]=sym_p1
+        else
+        puts "Position Already Taken, #{name} Please Enter Another Position"
+    end
+end
+end
+
+loop do
+puts "#{names[0]}, It is Your Turn,  Please Select Position"
+pos_move=gets.chop.strip
+check_pos(pos_move, names[0])
+end

@@ -43,10 +43,6 @@ end
 
 def check_pos(pos, name, sym_p1)
   loop do
-    if check_winner?(pos)
-      puts "#{name} Winns !!!!"
-      exit(0)
-    end
     if pos.all? { |x| %w[X Y].include?(x) }
       puts 'It is a Tie'
       break
@@ -60,7 +56,12 @@ def check_pos(pos, name, sym_p1)
       puts "#{pos[3]} | #{pos[4]} | #{pos[5]}"
       puts '---+---+---'
       puts "#{pos[6]} | #{pos[7]} | #{pos[8]}"
+      if check_winner?(pos)
+        puts "#{name} Winns !!!!"
+        exit(0)
+      end
       break
+
     else
       puts "Position Already Taken or InCorrect Position, #{name} Please Enter Another Position"
     end

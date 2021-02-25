@@ -25,3 +25,9 @@ unless sym.include?(sym_p1)
     end
   end
 end
+
+#-------Player 2 Information------
+puts "Player 2 Enter Your Name"
+names.push(gets.chop.strip)
+puts "Player two Your Name is #{names[1]}"
+puts "#{names[1]} Your Symbol is #{sym_p1=='X' ? 'Y' : 'X'}

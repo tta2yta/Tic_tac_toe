@@ -1,11 +1,27 @@
 #!/usr/bin/env ruby
-puts "Welcome to Tic Tac Toa game"
+puts 'Welcome to Tic Tac Toa game'
 
-puts "|1| |2| |3|"
-puts "------------"
-puts "|4| |5| |6|"
-puts "------------"
-puts "|7| |8| |9|"
+puts '|1| |2| |3|'
+puts '------------'
+puts '|4| |5| |6|'
+puts '------------'
+puts '|7| |8| |9|'
 
-names=[]
-sym=['X', 'Y']
+names = []
+sym = %w[X Y]
+#-------Player 1 Information------
+puts 'Player 1 Enter Your Name'
+names.push(gets.chop.strip)
+puts "Player One Your Name is #{names[0]}"
+puts 'Player One Select Symbol X or Y'
+sym_p1 = gets.chop.strip
+unless sym.include?(sym_p1)
+  loop do
+    puts 'Please Player One Select Symbol X or Y Choices Only'
+    sym_p1 = gets.chop.strip
+    if sym.include?(sym_p1)
+      puts "Player One Your  Selected Symbol is #{sym_p1}"
+      break
+    end
+  end
+end

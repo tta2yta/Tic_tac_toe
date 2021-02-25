@@ -30,7 +30,7 @@ This project is the implementation of the Tic Tac Toe game with ruby programing 
 To get a local copy of the repository please run the following commands on your terminal:
 
 ```
-$ cd <Enumerables>
+$ cd <Tic_tac_toe>
 ```
 
 ```

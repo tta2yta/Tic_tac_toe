@@ -31,14 +31,25 @@ puts "Player 2 Enter Your Name"
 names.push(gets.chop.strip)
 puts "Player two Your Name is #{names[1]}"
 puts "#{names[1]} Your Symbol is #{sym_p1=='X' ? 'Y' : 'X'}"
+puts "#{names[0]} will play with #{names[1]}"
 
 $pos=[1,2,3,4,5,6,7,8,9]
 
-def check_pos(pos_move, name, sym_p1)
+def check_pos(name, sym_p1)
 loop do
-    puts "#{names[0]}, It is Your Turn,  Please Select Position"
+    if $pos.all?{|x| %w[X Y].include?(x)}
+    puts "It is a Tie"
+    break
+    end
+    puts "#{name}, It is Your Turn,  Please Select Position"
+    pos_move=gets.chop.strip
     if $pos.include?(pos_move.to_i)
         $pos[pos_move.to_i - 1]=sym_p1
+        puts"#{$pos[0]} | #{$pos[1]} | #{$pos[2]}"
+        puts '---+---+---'
+        puts"#{$pos[3]} | #{$pos[4]} | #{$pos[5]}"
+        puts '---+---+---'
+        puts"#{$pos[6]} | #{$pos[7]} | #{$pos[8]}"
         break
         else
         puts "Position Already Taken or InCorrect Position, #{name} Please Enter Another Position"
@@ -53,11 +64,10 @@ puts "Game Over"
 break
 end
 #----Player 1 Position Selection----
-pos_move=gets.chop.strip
-check_pos(pos_move, names[0], sym_p1)
+
+check_pos(names[0], sym_p1)
 
 #----Player 2 Position Selection----
-pos_move=gets.chop.strip
-check_pos(pos_move, names[1], sym_p1=='X' ? 'Y' : 'X')
+check_pos(names[1], sym_p1=='X' ? 'Y' : 'X')
 
 end

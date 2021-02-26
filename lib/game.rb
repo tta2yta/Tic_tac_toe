@@ -21,4 +21,15 @@ class game
         return true if [$arr[0][0].$arr[1][1].$arr[2][2]].uniq.length == 1 ||
         [$arr[0][2].$arr[1][1].$arr[2][0]].uniq.length == 1
     end
+    def update_board(sym, pos)
+        if pos <= 3
+            $arr[0][pos -1] = sym
+        elsif pos <= 6
+            $arr[1][pos - 4] = sym
+            elsif pos <= 9
+                $arr[2][pos - 7] = sym
+            end
+            puts "Update Board #{$arr}"
+        end
+    end
 end

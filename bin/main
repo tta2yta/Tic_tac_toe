@@ -8,27 +8,27 @@ puts '|4| |5| |6|'
 puts '------------'
 puts '|7| |8| |9|'
 
-pl=Player.new
+pl = Player.new
 #-------Player 1 Information------
 puts 'Player 1 Enter Your Name'
-pl.set_player_name(gets.chop.strip)
+pl.player_name(gets.chop.strip)
 puts "Player One Your Name is #{pl.get_player_name(0)}"
 puts 'Player One Select Symbol X or Y'
-if pl.set_player_symbol?(gets.chop.strip)
+if pl.player_symbol?(gets.chop.strip)
   puts "Player One Your  Selected Symbol is #{pl.get_player_symbol('pl1')}"
-  else
-    loop do
-      puts 'Please Player One Select Symbol X or Y Choices Only'
-      if pl.set_player_symbol?(gets.chop.strip)
-        puts "Player One Your  Selected Symbol is #{pl.get_player_symbol('pl1')}"
-        break
-      end
+else
+  loop do
+    puts 'Please Player One Select Symbol X or Y Choices Only'
+    if pl.player_symbol?(gets.chop.strip)
+      puts "Player One Your  Selected Symbol is #{pl.get_player_symbol('pl1')}"
+      break
     end
+  end
 end
 
 #-------Player 2 Information------
 puts 'Player 2 Enter Your Name'
-pl.set_player_name(gets.chop.strip)
+pl.player_name(gets.chop.strip)
 puts "Player two Your Name is #{pl.get_player_name(1)}"
 puts "#{pl.get_player_name(1)} Your Symbol is #{pl.get_player_symbol('pl2')}"
 puts "#{pl.get_player_name(0)} will play with #{pl.get_player_name(1)}"

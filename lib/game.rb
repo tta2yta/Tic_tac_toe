@@ -9,4 +9,10 @@ class game
             item.all?{|val| %w[x y].include?(val)}
         end
     end
+    def validate_pos?(pos)
+        $arr.any? do |x|
+            x.any?{|y| return true if y == pos}
+        end
+    end
+    
 end

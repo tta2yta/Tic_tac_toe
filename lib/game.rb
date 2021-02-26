@@ -14,5 +14,11 @@ class game
             x.any?{|y| return true if y == pos}
         end
     end
-    
+    def check_winner?
+        ctr = 0
+        $arr.map {|row| return true if row.uniq.length == 1}
+        $arr.transpose.map {|row| return true if row.uniq.length == 1}
+        return true if [$arr[0][0].$arr[1][1].$arr[2][2]].uniq.length == 1 ||
+        [$arr[0][2].$arr[1][1].$arr[2][0]].uniq.length == 1
+    end
 end

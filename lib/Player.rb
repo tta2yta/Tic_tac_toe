@@ -1,23 +1,31 @@
 class Player
-   @@names = []
-   @@sym 
-   @@pl_1_sym
-   
-   def initialize()
+    @@names=[]
+    @@sym={"pl1"=>"","pl2"=>""}
+    @@pl_1_sym
 
-   end
+    def initialize()
 
-   def set_player_name(name)
-    @@names.push(name)
-   end
-   def set_player_symbol(sym)
-    if ['X', 'Y'].include?(sym)
-        sym == 'Y'?@@pl_1_sym = 'X' : @@pl_1_sym = 'Y'
-        @@pl_2_sym = 'Y' if @@pl_1_sym == 'X'
-        @@pl_2_sym = 'X' if @@pl_1_sym == 'Y'
     end
+
+    def set_player_name(name)
+        @@names.push(name)
     end
-def get_player_symbol()
-    
-end
+
+    def get_player_name(index)
+        @@names[index]
+    end
+
+    def set_player_symbol?(sym)
+        if ['X', 'Y'].include?(sym)
+            @@sym["pl1"]=sym
+            sym=='X'?@@sym["pl2"]='Y' : @@sym["pl2"]='X'
+            return true
+        end
+       return false
+
+    end
+
+    def get_player_symbol(index)
+     @@sym[index]
+    end
 end

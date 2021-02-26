@@ -25,3 +25,10 @@ if pl.set_player_symbol?(gets.chop.strip)
       end
     end
 end
+
+#-------Player 2 Information------
+puts 'Player 2 Enter Your Name'
+pl.set_player_name(gets.chop.strip)
+puts "Player two Your Name is #{pl.get_player_name(1)}"
+puts "#{pl.get_player_name(1)} Your Symbol is #{pl.get_player_symbol('pl2')}"
+puts "#{pl.get_player_name(0)} will play with #{pl.get_player_name(1)}"

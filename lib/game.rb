@@ -33,7 +33,7 @@ class Game
   end
 
   def board()
-    @cell=@board.flatten
+    @cell = @board.flatten
     puts "#{@cell[0]} | #{@cell[1]} | #{@cell[2]}"
     puts '---+---+---'
     puts "#{@cell[3]} | #{@cell[4]} | #{@cell[5]}"

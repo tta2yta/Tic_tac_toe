@@ -20,7 +20,7 @@ if pl.player_symbol?(gets.chop.strip)
   puts "#{pl.get_player_name(0)} Your  Selected Symbol is #{pl.get_player_symbol(0)}"
 else
   loop do
-    puts 'Please #{pl.get_player_name(0)} Select Symbol X or Y Choices Only'
+    puts "Please #{pl.get_player_name(0)} Select Symbol X or Y Choices Only"
     if pl.player_symbol?(gets.chop.strip)
       puts "#{pl.get_player_name(0)} Your  Selected Symbol is #{pl.get_player_symbol(0)}"
       break
@@ -37,19 +37,14 @@ puts "#{pl.get_player_name(0)} will play with #{pl.get_player_name(1)}"
 
 # Game
 gm = Game.new
-pl_flag=0
+pl_flag = 0
 loop do
-
   puts "#{pl.get_player_name(pl_flag)}, It is Your Turn,  Please Select Position"
   pos_move = gets.chop.strip.to_i
   if gm.validate_pos?(pos_move)
     gm.update_board(pl.get_player_symbol(pl_flag), pos_move)
     puts gm.board
-    if pl_flag==0
-    pl_flag=1
-    else
-      pl_flag=0
-    end
+    pl_flag = pl_flag == 1 ? 0 : 1
   else
     puts "Position Already Taken or InCorrect Position, #{pl.get_player_name(pl_flag)} Please Enter Another Position"
   end

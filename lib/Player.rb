@@ -1,7 +1,7 @@
 class Player
   def initialize
     @names = []
-    @sym = { 'pl1' => '', 'pl2' => '' }
+    @sym = []
   end
 
   def player_name(name)
@@ -14,8 +14,8 @@ class Player
 
   def player_symbol?(sym)
     if %w[X Y].include?(sym)
-      @sym['pl1'] = sym
-      @sym['pl2'] = sym == 'X' ? 'Y' : 'X'
+      @sym.push(sym)
+      @sym.push(sym == 'X' ? 'Y' : 'X')
       return true
     end
     false

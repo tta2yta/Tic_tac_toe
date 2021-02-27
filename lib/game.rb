@@ -10,7 +10,6 @@ class Game
   end
 
   def validate_pos?(pos)
-    puts "check #{@board.flatten}"
     @board.flatten.any? do |x|
       return true if x == pos.to_i
     end
@@ -34,10 +33,11 @@ class Game
   end
 
   def board()
-    puts "#{@board[0]} | #{@board[1]} | #{@board[2]}"
+    @cell=@board.flatten
+    puts "#{@cell[0]} | #{@cell[1]} | #{@cell[2]}"
     puts '---+---+---'
-    puts "#{@board[3]} | #{@board[4]} | #{@board[5]}"
+    puts "#{@cell[3]} | #{@cell[4]} | #{@cell[5]}"
     puts '---+---+---'
-    puts "#{@board[6]} | #{@board[7]} | #{@board[8]}"
+    puts "#{@cell[6]} | #{@cell[7]} | #{@cell[8]}"
   end
 end

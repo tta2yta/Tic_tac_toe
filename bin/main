@@ -48,6 +48,10 @@ loop do
       puts "#{pl.get_player_name(pl_flag)} wins !!!"
       break
     end
+    if gm.check_full?
+      puts 'It is a Tie, Game Over'
+      break
+    end
     pl_flag = pl_flag == 1 ? 0 : 1
   else
     puts "Position Already Taken or InCorrect Position, #{pl.get_player_name(pl_flag)} Please Enter Another Position"

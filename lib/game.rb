@@ -5,7 +5,7 @@ class Game
 
   def check_full?
     @board.flatten.all? do |item|
-      %w[x y].include?(item) 
+      %w[X Y].include?(item)
     end
   end
 

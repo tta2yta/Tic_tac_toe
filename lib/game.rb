@@ -8,27 +8,36 @@ class Game
       item.all? { |val| %w[x y].include?(val) }
     end
   end
-    def validate_pos?(pos)
-      puts "check #{@board.flatten}"
-        @board.flatten.any? do |x|
-            return true if x == pos.to_i
-        end
+
+  def validate_pos?(pos)
+    puts "check #{@board.flatten}"
+    @board.flatten.any? do |x|
+      return true if x == pos.to_i
     end
-    def check_winner?
-        ctr = 0
-        @board.map {|row| return true if row.uniq.length == 1}
-        @board.transpose.map {|row| return true if row.uniq.length == 1}
-        return true if [@board[0][0],@board[1][1],@board[2][2]].uniq.length == 1 ||
-        [@board[0][2],@board[1][1],@board[2][0]].uniq.length == 1
+  end
+
+  def check_winner?
+    @board.map { |row| return true if row.uniq.length == 1 }
+    @board.transpose.map { |row| return true if row.uniq.length == 1 }
+    return true if [@board[0][0], @board[1][1], @board[2][2]].uniq.length == 1 ||
+                   [@board[0][2], @board[1][1], @board[2][0]].uniq.length == 1
+  end
+
+  def update_board(sym, pos)
+    if pos <= 3
+      @board[0][pos - 1] = sym
+    elsif pos <= 6
+      @board[1][pos - 4] = sym
+    elsif pos <= 9
+      @board[2][pos - 7] = sym
     end
-    def update_board(sym, pos)
-        if pos <= 3
-            @board[0][pos -1] = sym
-        elsif pos <= 6
-            @board[1][pos - 4] = sym
-        elsif pos <= 9
-            @board[2][pos - 7] = sym
-        end
-            puts "Update Board #{@board}"
-    end
+  end
+
+  def board()
+    puts "#{@board[0]} | #{@board[1]} | #{@board[2]}"
+    puts '---+---+---'
+    puts "#{@board[3]} | #{@board[4]} | #{@board[5]}"
+    puts '---+---+---'
+    puts "#{@board[6]} | #{@board[7]} | #{@board[8]}"
+  end
 end

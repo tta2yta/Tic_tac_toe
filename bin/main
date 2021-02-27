@@ -34,3 +34,17 @@ pl.player_name(gets.chop.strip)
 puts "Player two Your Name is #{pl.get_player_name(1)}"
 puts "#{pl.get_player_name(1)} Your Symbol is #{pl.get_player_symbol('pl2')}"
 puts "#{pl.get_player_name(0)} will play with #{pl.get_player_name(1)}"
+
+#Game
+gm=Game.new
+loop do
+
+  puts "#{pl.get_player_name(1)}, It is Your Turn,  Please Select Position"
+  pos_move = gets.chop.strip
+  if gm.validate_pos?(pos_move)
+    puts 'valid pos'
+    break
+    else
+      puts 'invalid pos'
+  end
+end

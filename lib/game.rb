@@ -8,28 +8,27 @@ class Game
       item.all? { |val| %w[x y].include?(val) }
     end
   end
-end
     def validate_pos?(pos)
-        $arr.any? do |x|
-            x.any?{|y| return true if y == pos}
+      puts "check #{@board.flatten}"
+        @board.flatten.any? do |x|
+            return true if x == pos.to_i
         end
     end
     def check_winner?
         ctr = 0
-        $arr.map {|row| return true if row.uniq.length == 1}
-        $arr.transpose.map {|row| return true if row.uniq.length == 1}
-        return true if [$arr[0][0].$arr[1][1].$arr[2][2]].uniq.length == 1 ||
-        [$arr[0][2].$arr[1][1].$arr[2][0]].uniq.length == 1
+        @board.map {|row| return true if row.uniq.length == 1}
+        @board.transpose.map {|row| return true if row.uniq.length == 1}
+        return true if [@board[0][0],@board[1][1],@board[2][2]].uniq.length == 1 ||
+        [@board[0][2],@board[1][1],@board[2][0]].uniq.length == 1
     end
     def update_board(sym, pos)
         if pos <= 3
-            $arr[0][pos -1] = sym
+            @board[0][pos -1] = sym
         elsif pos <= 6
-            $arr[1][pos - 4] = sym
-            elsif pos <= 9
-                $arr[2][pos - 7] = sym
-            end
-            puts "Update Board #{$arr}"
+            @board[1][pos - 4] = sym
+        elsif pos <= 9
+            @board[2][pos - 7] = sym
         end
+            puts "Update Board #{@board}"
     end
 end

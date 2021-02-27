@@ -32,6 +32,14 @@ class Game
     end
   end
 
+  def check_winner?
+    ctr=0
+    @board.map {|row| return true if row.uniq.length==1}
+    @board.transpose.map {|row| return true if row.uniq.length==1}
+    return true if [@board[0][0],@board[1][1],@board[2][2]].uniq.length==1 || 
+    [@board[0][2],@board[1][1],@board[2][0]].uniq.length==1
+end
+
   def board()
     @cell = @board.flatten
     puts "#{@cell[0]} | #{@cell[1]} | #{@cell[2]}"

@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
-require_relative('../lib/Player')
+require_relative('../lib/player')
+require_relative('../lib/game')
+
 puts 'Welcome to Tic Tac Toa game'
 
 puts '|1| |2| |3|'

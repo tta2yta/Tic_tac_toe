@@ -2,7 +2,7 @@ class Player
   def initialize
     @names = []
     @sym = { 'pl1' => '', 'pl2' => '' }
-end
+  end
 
   def player_name(name)
     @names.push(name)

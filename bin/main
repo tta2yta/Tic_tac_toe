@@ -44,6 +44,10 @@ loop do
   if gm.validate_pos?(pos_move)
     gm.update_board(pl.get_player_symbol(pl_flag), pos_move)
     puts gm.board
+    if gm.check_winner?
+      puts "#{pl.get_player_name(pl_flag)} wins !!!"
+      break
+    end
     pl_flag = pl_flag == 1 ? 0 : 1
   else
     puts "Position Already Taken or InCorrect Position, #{pl.get_player_name(pl_flag)} Please Enter Another Position"

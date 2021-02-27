@@ -4,8 +4,8 @@ class Game
   end
 
   def check_full?
-    @board.all? do |item|
-      item.all? { |val| %w[x y].include?(val) }
+    @board.flatten.all? do |item|
+      %w[x y].include?(item) 
     end
   end
 
@@ -31,14 +31,6 @@ class Game
       @board[2][pos - 7] = sym
     end
   end
-
-  def check_winner?
-    ctr=0
-    @board.map {|row| return true if row.uniq.length==1}
-    @board.transpose.map {|row| return true if row.uniq.length==1}
-    return true if [@board[0][0],@board[1][1],@board[2][2]].uniq.length==1 || 
-    [@board[0][2],@board[1][1],@board[2][0]].uniq.length==1
-end
 
   def board()
     @cell = @board.flatten

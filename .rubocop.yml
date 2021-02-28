@@ -49,7 +49,6 @@ Metrics/CyclomaticComplexity:
   Enabled: false 
 Metrics/PerceivedComplexity:
   Enabled: false
-=======
 Layout/LineLength:
   Max: 120
 Metrics/MethodLength:

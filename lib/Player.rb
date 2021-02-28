@@ -20,8 +20,4 @@ class Player
     end
     false
   end
-
-  def get_player_symbol(index)
-    @sym[index]
-  end
 end

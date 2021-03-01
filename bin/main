@@ -19,8 +19,6 @@ while flag
   ply = Player.new
   #-------Player 1 Information------
   puts 'Player 1 Enter Your Name'
-  # pl.player_name(gets.chop.strip)
-  # puts "Player One Your Name is #{pl.get_player_name(0)}"
   enter_names(0, ply)
   puts "#{ply.get_player_name(0)} Select Symbol X or Y"
   if ply.player_symbol?(gets.chop.strip.upcase)
@@ -38,8 +36,6 @@ while flag
   #-------Player 2 Information------
   puts 'Player 2 Enter Your Name'
   enter_names(1, ply)
-  # pl.player_name(gets.chop.strip)
-  # puts "Player two Your Name is #{pl.get_player_name(1)}"
   puts "#{ply.get_player_name(1)} Your Symbol is #{ply.get_player_symbol(1)}"
   puts "#{ply.get_player_name(0)} will play with #{ply.get_player_name(1)}"
 

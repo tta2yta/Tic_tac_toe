@@ -24,7 +24,7 @@ This project is the implementation of the Tic Tac Toe game with ruby programing 
 
 
 ## 🔴 Live Demo <a name = "ldl"></a>
-[![Run on Repl.it](https://repl.it/badge/github/tta2yta/Tic_tac_toe-2#.replit)](https://repl.it/@tta2yta/Tic_tac_toe-2#.replit)
+[![Run on Repl.it](https://repl.it/badge/github/tta2yta/Tic_tac_toe-2#.replit)](https://repl.it/@tta2yta/Tictactoe-2#README.md)
 
 ## Getting Started
 

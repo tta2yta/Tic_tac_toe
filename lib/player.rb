@@ -1,4 +1,5 @@
 class Player
+  attr_reader :sym
   def initialize
     @names = []
     @sym = []

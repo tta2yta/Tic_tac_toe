@@ -19,7 +19,7 @@ while flag
   puts "Player One Your Name is #{pl.get_player_name(0)}"
   puts "#{pl.get_player_name(0)} Select Symbol X or Y"
   if pl.player_symbol?(gets.chop.strip.upcase)
-    puts "#{pl.get_player_name(0)} Your  Selected Symbol is #{pl.get_player_symbol(0)}"
+    puts "#{pl.get_player_name(0)} Your  Selected Symbol is #{pl.sym[0]}"
   else
     loop do
       puts "Please #{pl.get_player_name(0)} Select Symbol X or Y Choices Only"

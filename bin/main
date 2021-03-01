@@ -1,0 +1,83 @@
+#!/usr/bin/env ruby
+require_relative('../lib/player')
+require_relative('../lib/game')
+
+def enter_names(index, ply)
+  ply.player_name(gets.chop.strip)
+  puts "Player #{index + 1} Your Name is #{ply.get_player_name(index)}"
+end
+flag = true
+while flag
+  puts 'Welcome to Tic Tac Toa game'
+
+  puts '|1| |2| |3|'
+  puts '------------'
+  puts '|4| |5| |6|'
+  puts '------------'
+  puts '|7| |8| |9|'
+
+  ply = Player.new
+  #-------Player 1 Information------
+  puts 'Player 1 Enter Your Name'
+  enter_names(0, ply)
+  puts "#{ply.get_player_name(0)} Select Symbol X or Y"
+  if ply.player_symbol?(gets.chop.strip.upcase)
+    puts "#{ply.get_player_name(0)} Your  Selected Symbol is #{ply.sym[0]}"
+  else
+    loop do
+      puts "Please #{ply.get_player_name(0)} Select Symbol X or Y Choices Only"
+      if ply.player_symbol?(gets.chop.strip.upcase)
+        puts "#{ply.get_player_name(0)} Your  Selected Symbol is #{ply.get_player_symbol(0)}"
+        break
+      end
+    end
+  end
+
+  #-------Player 2 Information------
+  puts 'Player 2 Enter Your Name'
+  enter_names(1, ply)
+  puts "#{ply.get_player_name(1)} Your Symbol is #{ply.get_player_symbol(1)}"
+  puts "#{ply.get_player_name(0)} will play with #{ply.get_player_name(1)}"
+
+  # Game
+  gm = Game.new
+  pl_flag = 0
+  flag_loop = false
+  loop do
+    puts "#{ply.get_player_name(pl_flag)}, It is Your Turn,  Please Select Position"
+    pos_move = gets.chop.strip.to_i
+    if gm.validate_pos?(pos_move)
+      gm.update_board(ply.get_player_symbol(pl_flag), pos_move)
+      puts gm.board
+      if gm.check_winner?
+        puts "#{ply.get_player_name(pl_flag)} wins !!!"
+      elsif gm.check_full?
+        puts 'It is a Tie, Game Over'
+      end
+      if gm.check_winner? || gm.check_full?
+        puts 'Do you want to continue Playing, Press Y if Yes Or N If No'
+        cont_check = gets.chop.strip
+        loop do
+          if cont_check.upcase == 'Y' || cont_check.upcase == 'N'
+            flag = cont_check.upcase == 'Y'
+          else
+            puts 'Please Enter correct letter Y Or N'
+            cont_check = gets.chop.strip
+          end
+          if flag == false
+            puts 'Thank you for playing our Game !!!'
+            exit(0)
+          elsif flag == true
+            flag_loop = true
+            break
+          end
+        end
+      end
+      pl_flag = pl_flag == 1 ? 0 : 1
+    else
+      puts "Position Already Taken or InCorrect Position, #{ply.get_player_name(pl_flag)} Please Enter Another Position"
+    end
+    break if flag_loop == true
+  end
+
+end

@@ -65,4 +65,29 @@ describe Game do
       expect(gam.check_winner?).to eql(true)
     end
   end
+  describe '#check_full' do
+    it 'Checking the board is full or not, return true if full' do
+      gam.update_board('X', 1)
+      gam.update_board('Y', 2)
+      gam.update_board('X', 3)
+      gam.update_board('Y', 4)
+      gam.update_board('X', 5)
+      gam.update_board('X', 6)
+      gam.update_board('Y', 7)
+      gam.update_board('Y', 8)
+      gam.update_board('X', 9)
+      expect(gam.check_full?).to eql(true)
+    end
+
+    it 'Checking the board is full or not returns false if not full' do
+      gam.update_board('X', 1)
+      gam.update_board('Y', 2)
+      gam.update_board('X', 3)
+      gam.update_board('Y', 4)
+      gam.update_board('X', 5)
+      gam.update_board('X', 6)
+      gam.update_board('Y', 7)
+      expect(gam.check_full?).to eql(false)
+    end
+  end
 end

@@ -19,4 +19,10 @@ describe Player do
       expect(ply.get_player_name(0)).to eql('AAA')
     end
   end
+
+  describe "#player_symbol" do
+  it "Entering correct Symbol of Player" do 
+     expect(ply.player_symbol?('X')). to eql(true)
+  end
+end
 end

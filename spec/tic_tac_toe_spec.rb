@@ -34,12 +34,21 @@ describe Player do
       expect(ply.get_player_symbol(0)).to eql('Y')
     end
   end
-  describe Game do
-    let(:gam) { Game.new }
-    describe '#validate_pos' do
-      it 'return true if the position enterd is valid' do
-        expect(gam.validate_pos?(7)).to eql(true)
-      end
+end
+describe Game do
+  let(:gam) { Game.new }
+  describe '#validate_pos' do
+    it 'return true if the position enterd is valid' do
+      expect(gam.validate_pos?(7)).to eql(true)
+    end
+    it 'return False if the position enterd is not valid' do
+      expect(gam.validate_pos?(17)).to eql(false)
+    end
+  end
+  describe '#update_board' do
+    it 'Update board if correct position is provided' do
+      expected = [[1, 2, 3], [4, 5, 6], ['X', 8, 9]]
+      expect(gam.update_board('X', 7)).to eql(expected)
     end
   end
 end

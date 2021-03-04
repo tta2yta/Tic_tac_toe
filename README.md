@@ -43,6 +43,14 @@ $ git clone https://github.com/tta2yta/Tic_tac_toe.git
 ```
 $ ruby main
 ```
+## 🔨 Testing
+
+To run the tests described for each method:
+- change directory to the root of the project (cd into the project folder)
+- from terminal run the command `rspec`
+- to run a specific test `rspec ./spec/my_enumerables_spec.rb:104` (here 104 is the line number of the method)
+- result should be similar to:
+
 ## Usage
 
 - To play the game, open the terminal and direct yourself to the main folder root of TicTacToe.

@@ -30,6 +30,7 @@ class Game
     elsif pos <= 9
       @board[2][pos - 7] = sym
     end
+    @board
   end
 
   def board()

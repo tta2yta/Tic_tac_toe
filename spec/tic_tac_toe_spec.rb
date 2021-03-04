@@ -20,9 +20,18 @@ describe Player do
     end
   end
 
-  describe "#player_symbol" do
-  it "Entering correct Symbol of Player" do 
-     expect(ply.player_symbol?('X')). to eql(true)
+  describe '#player_symbol' do
+    it 'Entering correct Symbol of Player' do
+      expect(ply.player_symbol?('X')). to eql(true)
+    end
+    it 'Entering incorrect Symbol of Player' do
+      expect(ply.player_symbol?('k')). to eql(false)
+    end
   end
-end
+  describe '#get_player_symbol' do
+    it 'Displaying Player Symbol' do
+      ply.player_symbol?('Y')
+      expect(ply.get_player_symbol(0)).to eql('Y')
+    end
+  end
 end

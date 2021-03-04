@@ -30,14 +30,11 @@ class Game
     elsif pos <= 9
       @board[2][pos - 7] = sym
     end
+    @board
   end
 
   def board()
     @cell = @board.flatten
-    puts "#{@cell[0]} | #{@cell[1]} | #{@cell[2]}"
-    puts '---+---+---'
-    puts "#{@cell[3]} | #{@cell[4]} | #{@cell[5]}"
-    puts '---+---+---'
-    puts "#{@cell[6]} | #{@cell[7]} | #{@cell[8]}"
+    @cell
   end
 end

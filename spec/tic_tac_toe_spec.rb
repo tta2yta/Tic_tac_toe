@@ -57,4 +57,12 @@ describe Game do
       expect(gam.board).to eql(@cell)
     end
   end
+  describe '#check_winner' do
+    it 'Checking the winner of the game' do
+      gam.update_board('X', 1)
+      gam.update_board('X', 2)
+      gam.update_board('X', 3)
+      expect(gam.check_winner?).to eql(true)
+    end
+  end
 end

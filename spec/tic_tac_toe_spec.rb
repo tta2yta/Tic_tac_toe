@@ -51,4 +51,10 @@ describe Game do
       expect(gam.update_board('X', 7)).to eql(expected)
     end
   end
+  describe '#board' do
+    it 'Displaying Board' do
+      @cell = gam.update_board('X', 7).flatten
+      expect(gam.board).to eql(@cell)
+    end
+  end
 end

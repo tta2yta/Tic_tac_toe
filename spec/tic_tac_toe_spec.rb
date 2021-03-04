@@ -12,4 +12,11 @@ describe Player do
       expect(ply.player_name('Luqman')).to eql(arr.push('Luqman'))
     end
   end
+
+  describe '#get_player_name' do
+    it 'Display name of Player' do
+      ply.player_name('AAA')
+      expect(ply.get_player_name(0)).to eql('AAA')
+    end
+  end
 end

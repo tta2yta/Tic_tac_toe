@@ -68,8 +68,8 @@ while flag
         puts 'Do you want to continue Playing, Press Y if Yes Or N If No'
         cont_check = gets.chop.strip
         loop do
-          if cont_check.upcase == 'Y' || cont_check.upcase == 'N'
-            flag = cont_check.upcase == 'Y'
+          if cont_check.casecmp('Y').zero? || cont_check.casecmp('N').zero?
+            flag = cont_check.casecmp('Y').zero?
           else
             puts 'Please Enter correct letter Y Or N'
             cont_check = gets.chop.strip

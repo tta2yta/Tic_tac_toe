@@ -34,4 +34,12 @@ describe Player do
       expect(ply.get_player_symbol(0)).to eql('Y')
     end
   end
+  describe Game do
+    let(:gam) { Game.new }
+    describe '#validate_pos' do
+      it 'return true if the position enterd is valid' do
+        expect(gam.validate_pos?(7)).to eql(true)
+      end
+    end
+  end
 end

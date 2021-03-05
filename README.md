@@ -48,7 +48,7 @@ $ ruby main
 To run the tests described for each method:
 - change directory to the root of the project (cd into the project folder)
 - from terminal run the command `rspec`
-- to run a specific test `rspec ./spec/my_enumerables_spec.rb:104` (here 104 is the line number of the method)
+- to run a specific test `rspec ./spec/Tic_tac_toe_spec.rb:104` (here 104 is the line number of the method)
 - result should be similar to:
 
 ## Usage
